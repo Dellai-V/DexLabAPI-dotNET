@@ -1,5 +1,9 @@
 # DexLabAPI-dotNET
-Class for API control on DexLab exchange https://www.dexlab.space/
+Class for API control on DexLab
+
+Exchange : https://www.dexlab.space/
+
+Docs : https://docs.dexlab.space/
 
 # Installation
 For build the program you need to use .NET 2.1 SDK : <a href="https://dotnet.microsoft.com/download">Download</a>
@@ -10,6 +14,25 @@ The following packages are required :
 <pre>
 dotnet add package RestSharp
 </pre>
+# Available Functions
+- GetAllMarket
+- GetOrderBook
+- GetAllPrice
+- GetAllPrice24h
+- GetPrice
+- GetPrice24hAgo
+- GetAllVolume
+- GetVolume
+- GetAllLastTrade
+- GetTrade24h
+- GetLastTrade24h
+- GetAllBalance
+- TransferToken
+- PlaceOrder
+- CancelOrder
+- Settlement
+- GetOpenOrders
+- GetUnsettles
 
 # Example
 how to insert the list of all markets in a combo box:
