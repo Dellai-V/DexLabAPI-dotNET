@@ -1,19 +1,22 @@
 # DexLabAPI-dotNET
-Class for API control on DexLab
+.NET library for DexLab API.
+With this class you can access the services offered by the decentralized exchange Serum using your Solana wallet, and interact with more than 130 markets.
 
 Exchange : https://www.dexlab.space/
 
 Docs : https://docs.dexlab.space/
 
+API Endpoint : https://api.dexlab.space ( deprecated https://serum-api.dexlab.space )
+
 # Installation
-For build the program you need to use .NET 2.1 SDK : <a href="https://dotnet.microsoft.com/download">Download</a>
+- For build the program you need to use .NET SDK : <a href="https://dotnet.microsoft.com/download">Download</a>
 
-The following packages are required :
-- <a href="https://restsharp.dev/">RestSharp</a>
-
+- The following packages are required <a href="https://restsharp.dev/">RestSharp</a>
 <pre>
 dotnet add package RestSharp
 </pre>
+
+- To access the wallet it is necessary to insert the <a href="https://docs.dexlab.space/api-documentation/rest-api/wallet-api">private key</a> in the key variable
 # Available Functions
 - GetAllMarket
 - GetOrderBook
