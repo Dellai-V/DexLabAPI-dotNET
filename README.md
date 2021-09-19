@@ -11,7 +11,7 @@ API Endpoint : https://api.dexlab.space ( deprecated https://serum-api.dexlab.sp
 # Installation
 - For build the program you need to use .NET SDK : <a href="https://dotnet.microsoft.com/download">Download</a>
 
-- The following packages are required <a href="https://restsharp.dev/">RestSharp</a>
+- Package required : <a href="https://restsharp.dev/">RestSharp</a>
 <pre>
 dotnet add package RestSharp
 </pre>
@@ -60,6 +60,10 @@ using DexLab;
 
 How to view our wallet data in a nodeview:
 <pre>
+using DexLab;
+    class TestClass
+    {
+    Balance Wallet;
     public void UploadWallet()
     {
         Wallet = DexLabAPI.GetAllBalance();
@@ -99,5 +103,6 @@ How to view our wallet data in a nodeview:
 
         [Gtk.TreeNodeValue(Column = 2)]
         public string mintKey;
+    }
     }
 </pre>
