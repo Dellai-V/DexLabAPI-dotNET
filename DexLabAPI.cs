@@ -133,6 +133,36 @@ namespace DexLab
         }
     }
 
+    public class DexLabTV
+    {
+        // ! \\ The chart API requires authentication. Contact Dexlab ( dev@dexlab.space )
+
+        public static string url = "https://tv-api.dexlab.space";
+        public static TVconfig GetBaseConfig()
+        {
+            RestClient client = new RestClient(url);
+            RestRequest request = new RestRequest("v1/trade-history/tv/config");
+            return client.Get<TVconfig>(request).Data;
+        }
+        public static TVhistory GetHistory(string Symbol,string From,string To,string Resolution)
+        {
+            RestClient client = new RestClient(url);
+            RestRequest request = new RestRequest("v1/trade-history/tv/history");
+            request.AddQueryParameter("symbol", Symbol);
+            request.AddQueryParameter("from", From);
+            request.AddQueryParameter("to", To);
+            request.AddQueryParameter("resolution", Resolution);
+            return client.Get<TVhistory>(request).Data;
+        }
+        public static TVsymbols GetSymbolInfo(string Symbol)
+        {
+            RestClient client = new RestClient(url);
+            RestRequest request = new RestRequest("v1/trade-history/tv/history");
+            request.AddQueryParameter("symbol", Symbol);
+            return client.Get<TVsymbols>(request).Data;
+        }
+    }
+
 
     public class AllMarket
     {
@@ -149,7 +179,6 @@ namespace DexLab
             public string programId { get; set; }
         }
     }
-
     public class OrderBook
     {
         public bool success { get; set; }
@@ -165,10 +194,8 @@ namespace DexLab
                 public double size { get; set; }
                 public string side { get; set; }
             }
-
         }
     }
-
     public class AllPrices
     {
         public bool success { get; set; }
@@ -181,7 +208,6 @@ namespace DexLab
             public string market_address { get; set; }
         }
     }
-
     public class AllPrices24h
     {
         public bool success { get; set; }
@@ -195,7 +221,6 @@ namespace DexLab
             public double percent { get; set; }
         }
     }
-
     public class Prices
     {
         public bool success { get; set; }
@@ -208,7 +233,6 @@ namespace DexLab
             public string marketAddress { get; set; }
         }
     }
-
     public class AllVolume
     {
         public bool success { get; set; }
@@ -225,7 +249,6 @@ namespace DexLab
             public double lowPrice { get; set; }
         }
     }
-
     public class Volume
     {
         public bool success { get; set; }
@@ -255,7 +278,6 @@ namespace DexLab
             public double percent { get; set; }
         }
     }
-
     public class AllTrade
     {
         public bool success { get; set; }
@@ -274,7 +296,6 @@ namespace DexLab
             public DateTime createdAt { get; set; }
         }
     }
-
     public class Trade
     {
         public bool success { get; set; }
@@ -293,7 +314,6 @@ namespace DexLab
             public DateTime createdAt { get; set; }
         }
     }
-
     public class Balance
     {
         public bool success { get; set; }
@@ -306,7 +326,6 @@ namespace DexLab
             public double total { get; set; }
         }
     }
-
     public class Orders
     {
         public bool success { get; set; }
@@ -319,7 +338,6 @@ namespace DexLab
             public string orderType { get; set; }
         }
     }
-
     public class Cancel
     {
         public bool success { get; set; }
@@ -331,7 +349,6 @@ namespace DexLab
             public string priceCurrency { get; set; }
         }
     }
-
     public class OpenOrders
     {
         public bool success { get; set; }
@@ -351,7 +368,6 @@ namespace DexLab
             }
         }
     }
-
     public class Transfer
     {
         public bool success { get; set; }
@@ -361,7 +377,6 @@ namespace DexLab
             public string txid { get; set; }
         }
     }
-
     public class Settles
     {
         public bool success { get; set; }
@@ -375,7 +390,6 @@ namespace DexLab
             public string message { get; set; }
         }
     }
-
     public class Unsettles
     {
         public bool success { get; set; }
@@ -391,5 +405,38 @@ namespace DexLab
                 public double quoteTokenFree { get; set; }
             }
         }
+    }
+    public class TVconfig
+    {
+        public string[] supported_resolutions { get; set; }
+        public bool supports_group_request { get; set; }
+        public bool supports_marks { get; set; }
+        public bool supports_search { get; set; }
+        public bool supports_timescale_marks { get; set; }
+    }
+    public class TVsymbols
+    {
+        public string name { get; set; }
+        public string ticker { get; set; }
+        public string description { get; set; }
+        public string type { get; set; }
+        public string session { get; set; }
+        public string exchange { get; set; }
+        public string listed_exchange { get; set; }
+        public string timezone { get; set; }
+        public bool has_intraday { get; set; }
+        public string[] supported_resolutions { get; set; }
+        public double minmov { get; set; }
+        public double pricescale { get; set; }
+    }
+    public class TVhistory
+    {
+        public string s { get; set; }
+        public Int64[] t { get; set; }
+        public double[] c { get; set; }
+        public double[] o { get; set; }
+        public double[] h { get; set; }
+        public double[] l { get; set; }
+        public double[] v { get; set; }
     }
 }
